@@ -15,14 +15,17 @@ public class HabitEntity {
     private Long habitId;
     @Column(nullable = false)
     private String name;
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private UserEntity user;
+//    @ManyToOne
+//    @JoinColumn(name = "user_id")
+//    private UserEntity user;
 
-    public HabitEntity(Long habitId, String name, UserEntity user) {
+    public HabitEntity() {
+
+    }
+
+    public HabitEntity(Long habitId, String name) {
         this.habitId = habitId;
         this.name = name;
-        this.user = user;
     }
 
     public Long getHabitId() {
@@ -39,14 +42,6 @@ public class HabitEntity {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public UserEntity getUser() {
-        return user;
-    }
-
-    public void setUser(UserEntity user) {
-        this.user = user;
     }
 
 }

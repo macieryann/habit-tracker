@@ -6,7 +6,7 @@ CREATE TABLE users (
 
 CREATE TABLE habits (
     habit_id SERIAL PRIMARY KEY,
-    user_id INT REFERENCES users(user_id),
+--    user_id INT REFERENCES users(user_id),
     name VARCHAR(255) NOT NULL
 );
 
