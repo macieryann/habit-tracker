@@ -1,5 +1,6 @@
 package com.github.macieryann.controller;
 
+import com.github.macieryann.common.StatusCode;
 import com.github.macieryann.entity.HabitsEntity;
 import com.github.macieryann.service.HabitsService;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -25,8 +26,18 @@ public class HabitsController {
     }
 
     @PostMapping("/create")
-    public HabitsEntity createHabit(@RequestBody HabitsEntity habit) {
-        return habitsService.saveHabit(habit);
+    public HabitsEntity createHabit(@RequestBody HabitsEntity habitsEntity) {
+        return habitsService.saveHabit(habitsEntity);
+    }
+
+    @PostMapping("/edit")
+    public StatusCode editHabit(@RequestBody HabitsEntity habitsEntity) {
+        return habitsService.editHabit(habitsEntity);
+    }
+
+    @PostMapping("/delete")
+    public String deleteHabit(@RequestBody Long habitId) {
+        return habitsService.deleteHabit(habitId);
     }
 
 }
