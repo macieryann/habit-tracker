@@ -1,13 +1,8 @@
-CREATE TABLE users (
-    user_id SERIAL PRIMARY KEY,
-    username VARCHAR(255) NOT NULL UNIQUE,
-    password VARCHAR(255) NOT NULL
-);
-
 CREATE TABLE habits (
     habit_id SERIAL PRIMARY KEY,
---    user_id INT REFERENCES users(user_id),
-    name VARCHAR(255) NOT NULL
+    name VARCHAR(255) NOT NULL,
+    description VARCHAR(255),
+    datetime_modified timestamp
 );
 
 CREATE TABLE habit_progress (
