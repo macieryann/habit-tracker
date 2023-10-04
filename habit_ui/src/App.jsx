@@ -8,6 +8,7 @@ const App = () => {
     [true, true, false, true, true, true, true, false, false, true], // HABIT 1
     [true, false, true, false, true, true, false], // HABIT 2
     [false, true, false, false, false, true, true], // HABIT 3
+    [true, true, true]
   ];
 
   const habitNames = ['HABIT 1', 'HABIT 2', 'HABIT 3'];
@@ -19,7 +20,7 @@ const App = () => {
       </header>
       <main className='App-content'>
         <TodaysDate />
-        <HabitProgressBar habitData={habitData} habitNames={habitNames} />
+        <HabitProgressBar habitData={habitData} />
       </main>
     </div>
   );
