@@ -11,8 +11,6 @@ const App = () => {
     [true, true, true]
   ];
 
-  const habitNames = ['HABIT 1', 'HABIT 2', 'HABIT 3'];
-
   return (
     <div className="App">
       <header className="App-header">
