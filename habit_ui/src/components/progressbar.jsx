@@ -11,7 +11,6 @@ const HabitProgressBar = ({ habitData, habitNames }) => {
                 const completedDays = habitData[index].filter((day) => day).length;
                 const progress = (completedDays / totalDays) * 100;
 
-                // Define a style object to set the background color for progress bar
                 const progressBarStyle = {
                     backgroundColor: 'beige',
                 };
@@ -19,7 +18,6 @@ const HabitProgressBar = ({ habitData, habitNames }) => {
                 return (
                     <div key={index}>
                         <h1>{habitName}</h1>
-                        {/* Apply the custom class here */}
                         <ProgressBar
                             now={progress}
                             label={`${progress.toFixed(2)}%`}

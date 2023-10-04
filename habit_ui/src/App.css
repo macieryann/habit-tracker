@@ -14,8 +14,7 @@
 }
 
 .App-header {
-  background-color: aquamarine;
-  min-height: 10vh;
+  min-height: 9vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -55,10 +54,10 @@
 }
 
 .dot.completed {
-  background-color: hotpink;
+  background-color: #fe3fb3;
 }
 
 /* Custom class for the bar part (background) */
 .custom-progress-bar .progress-bar {
-  background-color: hotpink
+  background-color: #fe3fb3
 }

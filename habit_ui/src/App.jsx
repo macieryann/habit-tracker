@@ -1,4 +1,5 @@
 import './App.css';
+import TodaysDate from './components/date';
 import HabitProgressBar from './components/progressbar';
 import Header from './layout/header';
 
@@ -11,16 +12,13 @@ const App = () => {
 
   const habitNames = ['HABIT 1', 'HABIT 2', 'HABIT 3'];
 
-  const headerStyle = {
-    backgroundColor: 'aquamarine', // Replace with your desired background color
-  };
-
   return (
     <div className="App">
-      <header className="App-header" style={headerStyle}>
+      <header className="App-header">
         <Header />
       </header>
       <main className='App-content'>
+        <TodaysDate />
         <HabitProgressBar habitData={habitData} habitNames={habitNames} />
       </main>
     </div>
