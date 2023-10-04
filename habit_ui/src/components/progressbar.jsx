@@ -29,7 +29,11 @@ const HabitProgressBar = ({ habitData, habitNames }) => {
                                 <span
                                     key={dayIndex}
                                     className={completed ? 'dot completed' : 'dot'}
-                                ></span>
+                                >
+                                    <span className="dot-text">
+                                    {completed ? `10/${dayIndex + 1}` : ''}
+                                    </span>
+                                </span>
                             ))}
                         </div>
                     </div>

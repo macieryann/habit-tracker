@@ -46,18 +46,27 @@
 }
 
 .dot {
-  width: 20px;
-  height: 20px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
   margin: 0 4px;
-  background-color: black;
+  background-color: #999999;
+}
+
+.dot-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-size: 15px;
+  color: #fff;
 }
 
 .dot.completed {
   background-color: #fe3fb3;
 }
 
-/* Custom class for the bar part (background) */
 .custom-progress-bar .progress-bar {
   background-color: #fe3fb3
 }

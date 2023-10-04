@@ -5,7 +5,7 @@ import Header from './layout/header';
 
 const App = () => {
   const habitData = [
-    [true, true, false, true, true, true, true, false, false, false], // HABIT 1
+    [true, true, false, true, true, true, true, false, false, true], // HABIT 1
     [true, false, true, false, true, true, false], // HABIT 2
     [false, true, false, false, false, true, true], // HABIT 3
   ];
