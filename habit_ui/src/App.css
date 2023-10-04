@@ -14,6 +14,7 @@
 }
 
 .App-header {
+  background-color: aquamarine;
   min-height: 10vh;
   display: flex;
   flex-direction: column;
@@ -23,7 +24,7 @@
 }
 
 .App-content {
-  background-color: beige;
+  align-items: center;
 }
 
 .App-link {
@@ -37,4 +38,27 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.dots {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin: 0 4px;
+  background-color: black;
+}
+
+.dot.completed {
+  background-color: hotpink;
+}
+
+/* Custom class for the bar part (background) */
+.custom-progress-bar .progress-bar {
+  background-color: hotpink
 }
