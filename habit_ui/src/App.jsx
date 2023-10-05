@@ -1,14 +1,15 @@
 import './App.css';
 import TodaysDate from './components/date';
 import HabitProgressBar from './components/progressbar';
-import Header from './layout/header';
+import Header from './layout/header.jsx';
 
 const App = () => {
   const habitData = [
     [true, true, false, true, true, true, true, false, false, true], // HABIT 1
     [true, false, true, false, true, true, false], // HABIT 2
     [false, true, false, false, false, true, true], // HABIT 3
-    [true, true, true]
+    [true, true, true],
+    [false, true, false, false, false, true, true]
   ];
 
   return (

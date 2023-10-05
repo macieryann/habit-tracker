@@ -13,7 +13,7 @@ const TodaysDate = () => {
     });
   
     return (
-      <div>
+      <div align="left">
         <h2>{formattedDate}</h2>
       </div>
     );
