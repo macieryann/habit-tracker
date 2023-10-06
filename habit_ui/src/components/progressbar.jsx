@@ -43,8 +43,8 @@ const HabitProgressBar = ({ habitData }) => {
 
                 return (
                     <div key={index}>
-                        <h1>{habitInfo.name}</h1>
-                        <p>{habitInfo.description}</p>
+                        <h1 align="left">{habitInfo.name}</h1>
+                        <p align="left">{habitInfo.description}</p>
                         <ProgressBar
                             now={progress}
                             label={`${progress.toFixed(2)}%`}

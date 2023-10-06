@@ -2,7 +2,6 @@ import React from 'react';
 import '../App.css';
 
 const TodaysDate = () => {
-    // Get the current date
     const currentDate = new Date();
   
     // Format the date as "Month Day, Year"
@@ -14,7 +13,7 @@ const TodaysDate = () => {
   
     return (
       <div>
-        <h2>{formattedDate}</h2>
+        <h6>{formattedDate}</h6>
       </div>
     );
   };
