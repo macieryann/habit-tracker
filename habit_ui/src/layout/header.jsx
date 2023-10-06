@@ -1,29 +1,25 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import AddHabit from '../components/addhabit';
 import AppBar from '@mui/material/AppBar';
+import TodaysDate from '../components/date';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import MenuItem from '@mui/material/MenuItem';
 
-const Header = ({ }) => {
+const Header = () => {
   const headerStyle = {
     backgroundColor: '#9a005d',
-    width: '100%',
-    height: '75px'
-  };
-
-  const menuItemStyle = {
-    border: '1px solid #000',
-    borderRadius: '4px',
+    width: '100%'
   };
 
   return (
-    <AppBar style={headerStyle} position="sticky">
+    <AppBar style={headerStyle} sx={{ flexWrap: 1 }}>
       <Toolbar>
         <Typography textAlign={'left'} variant="h6" sx={{ flexGrow: 1 }}>
-          HabitHub
+          HabitHub <TodaysDate />
         </Typography>
-        <MenuItem style={menuItemStyle}>
-          <Typography>New Habit</Typography>
+        <MenuItem>
+          <AddHabit />
         </MenuItem>
       </Toolbar>
     </AppBar>
