@@ -70,3 +70,8 @@
 .custom-progress-bar .progress-bar {
   background-color: #fe3fb3
 }
+
+.header-button {
+  background-color: #fe3fb3;
+  border-color: #999999;
+}

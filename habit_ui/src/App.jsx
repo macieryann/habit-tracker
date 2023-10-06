@@ -11,6 +11,9 @@ const App = () => {
     [false, true, false, false, false, true, true],
     [true, true, true],
     [false, true, false, false, false, true, true],
+    [false, true, false, false, false, true, true],
+    [false, true, false, true],
+    [false, true, false, true],
   ];
 
   return (

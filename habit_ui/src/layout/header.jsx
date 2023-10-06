@@ -5,6 +5,7 @@ import TodaysDate from '../components/date';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import MenuItem from '@mui/material/MenuItem';
+import RefreshPage from '../components/refreshpage';
 
 const Header = () => {
   const headerStyle = {
@@ -19,6 +20,7 @@ const Header = () => {
           HabitHub <TodaysDate />
         </Typography>
         <MenuItem>
+          <RefreshPage />
           <AddHabit />
         </MenuItem>
       </Toolbar>
