@@ -27,6 +27,8 @@ public class HabitsService extends CrudService<HabitsEntity, Long> {
         fetchedEntity.setName(requestEntity.getName());
         fetchedEntity.setDescription(requestEntity.getDescription());
         fetchedEntity.setDatetimeModified(requestEntity.getDatetimeModified());
+        fetchedEntity.setHabitStartDate(requestEntity.getHabitStartDate());
+        fetchedEntity.setHabitEndDate(requestEntity.getHabitEndDate());
     }
 
     public List<HabitsEntity> retrieveAllHabits() {
@@ -34,7 +36,6 @@ public class HabitsService extends CrudService<HabitsEntity, Long> {
     }
 
     public HabitsEntity saveHabit(HabitsEntity habit) {
-        // Find the highest existing habitId and increment it by 1
         Long maxHabitId = habitsDao.findMaxHabitId();
         if (maxHabitId == null) {
             maxHabitId = 0L;
@@ -50,6 +51,8 @@ public class HabitsService extends CrudService<HabitsEntity, Long> {
         habit.setDescription(habit.getDescription());
         habit.setName(habit.getName());
         habit.setDatetimeModified(Instant.now());
+        habit.setHabitStartDate(habit.getHabitStartDate());
+        habit.setHabitEndDate(habit.getHabitEndDate());
         return super.editEntity(habitId, habit);
     }
 

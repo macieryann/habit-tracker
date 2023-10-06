@@ -2,7 +2,9 @@ CREATE TABLE habits (
     habit_id SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     description VARCHAR(255),
-    datetime_modified timestamp
+    datetime_modified timestamp,
+    habit_start_date DATE,
+    habit_end_date DATE
 );
 
 CREATE TABLE habit_progress (

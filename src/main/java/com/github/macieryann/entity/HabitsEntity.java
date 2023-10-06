@@ -3,6 +3,7 @@ package com.github.macieryann.entity;
 import jakarta.persistence.*;
 
 import java.time.Instant;
+import java.sql.Date;
 
 @Entity
 @Table(name = "habits")
@@ -16,16 +17,22 @@ public class HabitsEntity {
     private String description;
     @Column
     private Instant datetimeModified;
+    @Column
+    private Date habitStartDate;
+    @Column
+    private Date habitEndDate;
 
     public HabitsEntity() {
 
     }
 
-    public HabitsEntity(Long habitId, String name, String description, Instant datetimeModified) {
+    public HabitsEntity(Long habitId, String name, String description, Instant datetimeModified, Date habitStartDate, Date habitEndDate) {
         this.habitId = habitId;
         this.name = name;
         this.description = description;
         this.datetimeModified = datetimeModified;
+        this.habitStartDate = habitStartDate;
+        this.habitEndDate = habitEndDate;
     }
 
     public Long getHabitId() {
@@ -60,4 +67,19 @@ public class HabitsEntity {
         this.datetimeModified = datetimeModified;
     }
 
+    public Date getHabitStartDate() {
+        return habitStartDate;
+    }
+
+    public void setHabitStartDate(Date habitStartDate) {
+        this.habitStartDate = habitStartDate;
+    }
+
+    public Date getHabitEndDate() {
+        return habitEndDate;
+    }
+
+    public void setHabitEndDate(Date habitEndDate) {
+        this.habitEndDate = habitEndDate;
+    }
 }
