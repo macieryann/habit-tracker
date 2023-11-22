@@ -18,6 +18,9 @@ const HabitProgressBar = () => {
     const [habitDataInfo, setHabitDataInfo] = useState([]);
     const [currentWeek, setCurrentWeek] = useState({ start: null, end: null });
     const currentDate = new Date();
+    const [progressCompletion, setProgressCompletion] = useState({
+        // initialize with default values or an empty object
+      });
 
     const getCurrentWeek = () => {
         const currentDate = new Date();
@@ -68,6 +71,37 @@ const HabitProgressBar = () => {
         return <div>Loading...</div>;
     }
 
+    const onCompletedButton = (habitId, habitName, habitDescription) => {
+        console.log('line 75 just got into onCompletedButton');
+        console.log('line 76 habit id is: ', habitId);
+        const updatedProgressCompletion = {
+            progressId: 0,
+            habit: {
+                habitId: habitId,
+                name: habitName,
+                description: habitDescription,
+            },
+            completed: true
+        };
+    
+        setProgressCompletion(updatedProgressCompletion);
+    
+        fetch('http://localhost:8080/habit-progress/add-progress', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(updatedProgressCompletion),
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Progress logged successfully:', data);
+            })
+            .catch(error => {
+                console.error('Failed to log progress:', error);
+            });
+    };
+
     return (
         <div>
             {habitDataInfo.map((habitInfo, index) => {
@@ -86,7 +120,8 @@ const HabitProgressBar = () => {
                             <div>
                                 <Stack spacing={2} direction="row">
                                     <h1 align="left">{habitInfo.name}</h1>
-                                    <ColorButton size="small" variant="contained">Completed?</ColorButton>
+                                    <ColorButton size="small" variant="contained" onClick={() => 
+                                        onCompletedButton(habitInfo.habitId, habitInfo.name, habitInfo.description)}>Completed?</ColorButton>
                                 </Stack>
                             </div>
                             <p align="left">{habitInfo.description}</p>
