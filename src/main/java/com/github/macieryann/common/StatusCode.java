@@ -9,7 +9,8 @@ import lombok.ToString;
 public enum StatusCode {
     SUCCESS("SUCCESS"),
     DATABASE_ERROR("DATABASE_ERROR"),
-    INSERT_ERROR("INSERT_ERROR");
+    INSERT_ERROR("INSERT_ERROR"),
+    DELETE_ERROR("DELETE ERROR");
 
     private final String code;
 

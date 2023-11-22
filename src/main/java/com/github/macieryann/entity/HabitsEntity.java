@@ -3,7 +3,8 @@ package com.github.macieryann.entity;
 import jakarta.persistence.*;
 
 import java.time.Instant;
-import java.sql.Date;
+import java.time.LocalDate;
+import java.time.YearMonth;
 
 @Entity
 @Table(name = "habits")
@@ -18,21 +19,22 @@ public class HabitsEntity {
     @Column
     private Instant datetimeModified;
     @Column
-    private Date habitStartDate;
+    private int habitMonth;
     @Column
-    private Date habitEndDate;
+    private int habitYear;
 
     public HabitsEntity() {
 
     }
 
-    public HabitsEntity(Long habitId, String name, String description, Instant datetimeModified, Date habitStartDate, Date habitEndDate) {
+    public HabitsEntity(Long habitId, String name, String description, Instant datetimeModified,
+                        int habitMonth, int habitYear) {
         this.habitId = habitId;
         this.name = name;
         this.description = description;
         this.datetimeModified = datetimeModified;
-        this.habitStartDate = habitStartDate;
-        this.habitEndDate = habitEndDate;
+        this.habitMonth = habitMonth;
+        this.habitYear = habitYear;
     }
 
     public Long getHabitId() {
@@ -67,19 +69,20 @@ public class HabitsEntity {
         this.datetimeModified = datetimeModified;
     }
 
-    public Date getHabitStartDate() {
-        return habitStartDate;
+    public int getHabitMonth() {
+        return habitMonth;
     }
 
-    public void setHabitStartDate(Date habitStartDate) {
-        this.habitStartDate = habitStartDate;
+    public void setHabitMonth(int habitMonth) {
+        this.habitMonth = habitMonth;
     }
 
-    public Date getHabitEndDate() {
-        return habitEndDate;
+    public int getHabitYear() {
+        return habitYear;
     }
 
-    public void setHabitEndDate(Date habitEndDate) {
-        this.habitEndDate = habitEndDate;
+    public void setHabitYear(int habitYear) {
+        this.habitYear = habitYear;
     }
+
 }

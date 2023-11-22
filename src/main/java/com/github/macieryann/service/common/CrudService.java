@@ -29,6 +29,19 @@ public abstract class CrudService<T, ID> {
         repository.deleteById(id);
     }
 
+    public StatusCode deleteByIdWithStatus(ID id) {
+        StatusCode statusCode;
+        if (repository.existsById(id)) {
+            repository.deleteById(id);
+            statusCode = StatusCode.SUCCESS;
+        } else {
+            // id does not exist
+            System.out.println("can't find the entity with ID " + id);
+            statusCode = StatusCode.DELETE_ERROR;
+        }
+        return statusCode;
+    }
+
     public abstract void updateFields(T requestEntity, T fetchedEntity);
 
     public StatusCode editEntity(ID id, T updatedEntity) {
