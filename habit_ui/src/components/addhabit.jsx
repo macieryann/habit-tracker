@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Dialog, DialogContent, DialogTitle, TextField, Button } from '@mui/material';
+import { Dialog, DialogContent, DialogTitle, TextField } from '@mui/material';
 
 function AddHabit() {
   const [addVisible, setAddVisible] = useState(false);
-  const [newHabit, setNewHabit] = useState({ name: '', description: '' });
+  const [newHabit, setNewHabit] = useState({ name: '', description: '', startDate: '', endDate: '' });
 
   const openAddDialog = () => {
     setNewHabit({ name: '', description: '' });
@@ -37,17 +37,15 @@ function AddHabit() {
         closeAddDialog();
       } else {
         console.error('Failed to create habit');
-        // You can display an error message to the user if needed
       }
     } catch (error) {
       console.error('Error creating habit:', error);
-      // You can display an error message to the user if needed
     }
   };
 
   return (
     <div>
-      <button variant="contained" color='hot-pink' onClick={openAddDialog}>
+      <button variant="contained" onClick={openAddDialog}>
         Add New Habit
       </button>
       <Dialog open={addVisible} onClose={closeAddDialog}>

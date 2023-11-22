@@ -5,6 +5,28 @@ import '../App.css';
 
 const HabitProgressBar = ({ habitData }) => {
     const [habitDataInfo, setHabitDataInfo] = useState([]);
+    const [currentWeek, setCurrentWeek] = useState({ start: null, end: null });
+    const currentDate = new Date();
+
+    const getCurrentWeek = () => {
+        const currentDate = new Date();
+        const currentDay = currentDate.getDay();
+        const diff = currentDay - 1;
+        currentDate.setDate(currentDate.getDate() - diff);
+
+        const startOfWeek = new Date(currentDate);
+        const endOfWeek = new Date(currentDate);
+
+        endOfWeek.setDate(endOfWeek.getDate() + 6);
+
+        return { start: startOfWeek, end: endOfWeek };
+    }
+
+    const daysInMonth = 30;
+
+    const formatToMMDD = (date) => {
+        return date?.toLocaleDateString('en-US', { month: '2-digit', day: '2-digit' });
+    };
 
     useEffect(() => {
         fetch('http://localhost:8080/habits/all')
@@ -19,6 +41,7 @@ const HabitProgressBar = ({ habitData }) => {
             .catch((error) => {
                 console.error('Error fetching habit data:', error);
             });
+        setCurrentWeek(getCurrentWeek());
     }, []);
 
     if (!habitData || habitData.length === 0 || habitDataInfo.length === 0) {
@@ -47,7 +70,7 @@ const HabitProgressBar = ({ habitData }) => {
                         <p align="left">{habitInfo.description}</p>
                         <ProgressBar
                             now={progress}
-                            label={`${progress.toFixed(2)}%`}
+                            label={`${progress.toFixed(0)}%`}
                             style={progressBarStyle}
                             className="custom-progress-bar"
                         />
@@ -58,7 +81,7 @@ const HabitProgressBar = ({ habitData }) => {
                                     className={completed ? 'dot completed' : 'dot'}
                                 >
                                     <span className="dot-text">
-                                        {completed ? `10/${dayIndex + 1}` : ''}
+                                        {formatToMMDD(new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate() - currentDate.getDay() + dayIndex + 1))}
                                     </span>
                                 </span>
                             ))}
