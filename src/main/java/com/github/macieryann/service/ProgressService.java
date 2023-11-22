@@ -46,7 +46,7 @@ public class ProgressService extends CrudService<ProgressEntity, Long> {
         }
         progress.setProgressId(maxProgressId + 1);
         progress.setDatetimeModified(Instant.now());
-//        /*should I do this?*/progress.setHabitDate(LocalDate.now());
+        progress.setHabitDate(LocalDate.now());
         return dao.save(progress);
     }
 
@@ -55,7 +55,7 @@ public class ProgressService extends CrudService<ProgressEntity, Long> {
 //        progress.setHabit();
         progress.setDatetimeModified(Instant.now());
         progress.setCompleted(progress.getCompleted());
-//      uncomment if I decide to set as today's date  progress.setHabitDate(LocalDate.now());
+        progress.setHabitDate(LocalDate.now());
         return super.editEntity(progressId, progress);
     }
 
