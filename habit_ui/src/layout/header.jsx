@@ -9,7 +9,7 @@ import RefreshPage from '../components/refreshpage';
 
 const Header = () => {
   const headerStyle = {
-    backgroundColor: '#9a005d',
+    backgroundColor: '#605DC8',
     width: '100%'
   };
 
@@ -17,7 +17,8 @@ const Header = () => {
     <AppBar style={headerStyle} sx={{ flexWrap: 1 }}>
       <Toolbar>
         <Typography textAlign={'left'} variant="h6" sx={{ flexGrow: 1 }}>
-          HabitHub <TodaysDate />
+          <div>HabitHub</div> 
+          <TodaysDate />
         </Typography>
         <MenuItem>
           <RefreshPage />
