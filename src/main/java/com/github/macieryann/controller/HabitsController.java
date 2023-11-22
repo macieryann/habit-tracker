@@ -12,7 +12,7 @@ import java.util.List;
 @CrossOrigin
 @RestController
 @RequestMapping("/habits")
-@Tag(name = "habits controller; first service in the project")
+@Tag(name = "habits controller")
 public class HabitsController {
     private final HabitsService habitsService;
 
@@ -26,6 +26,11 @@ public class HabitsController {
         return habitsService.retrieveAllHabits();
     }
 
+    @GetMapping("/{habitId}")
+    public HabitsEntity retrieveHabitById(@PathVariable Long habitId) {
+        return habitsService.retrieveHabitById(habitId);
+    }
+
     @PostMapping("/create")
     public HabitsEntity createHabit(@RequestBody HabitsEntity habitsEntity) {
         return habitsService.saveHabit(habitsEntity);
@@ -36,8 +41,8 @@ public class HabitsController {
         return habitsService.editHabit(habitsEntity);
     }
 
-    @PostMapping("/delete")
-    public String deleteHabit(@RequestBody Long habitId) {
+    @GetMapping("/delete/{habitId}")
+    public String deleteHabit(@PathVariable Long habitId) {
         return habitsService.deleteHabit(habitId);
     }
 

@@ -11,5 +11,9 @@ CREATE TABLE habit_progress (
     progress_id SERIAL PRIMARY KEY,
     habit_id INT REFERENCES habits(habit_id),
     datetime_modified TIMESTAMP NOT NULL,
-    completion_status DECIMAL
+    completed BOOLEAN,
+    habit_date DATE
 );
+
+ALTER TABLE public.habits ADD habit_month int NULL;
+ALTER TABLE public.habits ADD habit_year int NULL;
