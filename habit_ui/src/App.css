@@ -69,9 +69,14 @@
 
 .custom-progress-bar .progress-bar {
   background-color: #fe3fb3;
-  /* height: 50px; */
+  font-size: large;
 }
 
 .header-button {
   border-color: #999999;
+}
+
+.habit-list-item {
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
