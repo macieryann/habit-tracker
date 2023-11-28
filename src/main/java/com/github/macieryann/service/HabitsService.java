@@ -29,8 +29,6 @@ public class HabitsService extends CrudService<HabitsEntity, Long> {
         fetchedEntity.setDatetimeModified(requestEntity.getDatetimeModified());
 //        fetchedEntity.setHabitStartDate(requestEntity.getHabitStartDate());
 //        fetchedEntity.setHabitEndDate(requestEntity.getHabitEndDate());
-        fetchedEntity.setHabitMonth(requestEntity.getHabitMonth());
-        fetchedEntity.setHabitYear(requestEntity.getHabitYear());
     }
 
     public List<HabitsEntity> retrieveAllHabits() {
@@ -57,7 +55,6 @@ public class HabitsService extends CrudService<HabitsEntity, Long> {
         habit.setDescription(habit.getDescription());
         habit.setName(habit.getName());
         habit.setDatetimeModified(Instant.now());
-        habit.setHabitMonth(habit.getHabitMonth());
         return super.editEntity(habitId, habit);
     }
 
