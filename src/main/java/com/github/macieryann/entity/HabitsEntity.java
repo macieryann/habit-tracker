@@ -18,23 +18,16 @@ public class HabitsEntity {
     private String description;
     @Column
     private Instant datetimeModified;
-    @Column
-    private int habitMonth;
-    @Column
-    private int habitYear;
 
     public HabitsEntity() {
 
     }
 
-    public HabitsEntity(Long habitId, String name, String description, Instant datetimeModified,
-                        int habitMonth, int habitYear) {
+    public HabitsEntity(Long habitId, String name, String description, Instant datetimeModified) {
         this.habitId = habitId;
         this.name = name;
         this.description = description;
         this.datetimeModified = datetimeModified;
-        this.habitMonth = habitMonth;
-        this.habitYear = habitYear;
     }
 
     public Long getHabitId() {
@@ -67,22 +60,6 @@ public class HabitsEntity {
 
     public void setDatetimeModified(Instant datetimeModified) {
         this.datetimeModified = datetimeModified;
-    }
-
-    public int getHabitMonth() {
-        return habitMonth;
-    }
-
-    public void setHabitMonth(int habitMonth) {
-        this.habitMonth = habitMonth;
-    }
-
-    public int getHabitYear() {
-        return habitYear;
-    }
-
-    public void setHabitYear(int habitYear) {
-        this.habitYear = habitYear;
     }
 
 }
