@@ -17,10 +17,7 @@ const ColorButton = styled(Button)(() => ({
 const HabitProgressBar = () => {
     const [habitDataInfo, setHabitDataInfo] = useState([]);
     const [currentWeek, setCurrentWeek] = useState({ start: null, end: null });
-    const currentDate = new Date();
-    const [progressCompletion, setProgressCompletion] = useState({
-        // initialize with default values or an empty object
-      });
+    const [progressCompletion, setProgressCompletion] = useState({});
 
     const getCurrentWeek = () => {
         const currentDate = new Date();
@@ -83,9 +80,9 @@ const HabitProgressBar = () => {
             },
             completed: true
         };
-    
+
         setProgressCompletion(updatedProgressCompletion);
-    
+
         fetch('http://localhost:8080/habit-progress/add-progress', {
             method: 'POST',
             headers: {
@@ -104,14 +101,14 @@ const HabitProgressBar = () => {
 
     return (
         <div>
-            {habitDataInfo.map((habitInfo, index) => {
+            {Array.isArray(habitDataInfo) && habitDataInfo.map((habitInfo, index) => {
                 const totalDays = 7;
                 const completedDays = habitInfo.progressData?.filter((progress) => progress.completed).length || 0;
                 const progress = (completedDays / totalDays) * 100;
 
                 const progressBarStyle = {
                     backgroundColor: '#999999',
-                    height: '40px'
+                    height: '45px'
                 };
 
                 return (
@@ -120,11 +117,11 @@ const HabitProgressBar = () => {
                             <div>
                                 <Stack spacing={2} direction="row">
                                     <h1 align="left">{habitInfo.name}</h1>
-                                    <ColorButton size="small" variant="contained" onClick={() => 
+                                    <ColorButton size="small" variant="contained" onClick={() =>
                                         onCompletedButton(habitInfo.habitId, habitInfo.name, habitInfo.description)}>Completed?</ColorButton>
                                 </Stack>
+                                <p align="left">{habitInfo.description}</p>
                             </div>
-                            <p align="left">{habitInfo.description}</p>
                             <ProgressBar
                                 now={progress}
                                 label={`${progress.toFixed(0)}%`}
@@ -132,13 +129,13 @@ const HabitProgressBar = () => {
                                 className="custom-progress-bar"
                             />
                             <div className="dots">
-                                {Array.from({ length: totalDays }, (_, dayIndex) => (
+                                {habitInfo.progressData?.map((progress, dayIndex) => (
                                     <span
                                         key={dayIndex}
-                                        className={habitInfo.progressData?.[dayIndex]?.completed ? 'dot completed' : 'dot'}
+                                        className={progress.completed ? 'dot completed' : 'dot'}
                                     >
                                         <span className="dot-text">
-                                            {formatToMMDD(new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate() - currentDate.getDay() + dayIndex + 1))}
+                                            {formatToMMDD(new Date(progress.habitDate))}
                                         </span>
                                     </span>
                                 ))}
